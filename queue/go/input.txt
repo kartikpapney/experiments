@@ -1,0 +1,45 @@
+Push 10
+Push 20
+Push 30
+Push 40
+Push 50
+Top
+Pop
+Top
+Pop
+Size
+IsEmpty
+Push 60
+Pop
+Push 70
+Push 80
+Pop
+Top
+Push 90
+Push 100
+Size
+IsEmpty
+Pop
+Pop
+Pop
+Pop
+Size
+Push 110
+Top
+Pop
+Push 120
+Pop
+Pop
+Push 130
+Size
+Push 140
+Push 150
+Top
+Pop
+Pop
+IsEmpty
+Push 160
+Push 170
+Top
+Pop
+Push 180
