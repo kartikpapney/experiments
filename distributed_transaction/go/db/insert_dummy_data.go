@@ -3,6 +3,7 @@ package database
 import (
 	"database/sql"
 	"fmt"
+	"sync"
 
 	"github.com/go-faker/faker/v4"
 )
@@ -14,15 +15,16 @@ func InsertDummyData(db *sql.DB) error {
 	if err != nil {
 		return fmt.Errorf("error inserting dummy airline: %v", err)
 	}
-
+	var wg sync.WaitGroup
 	// Insert 120 users
 	for i := 1; i <= 120; i++ {
-		_, err = db.Exec("INSERT INTO users (id, name) VALUES ($1, $2)", i, faker.Name())
-		if err != nil {
-			return fmt.Errorf("error inserting dummy user %d: %v", i, err)
-		}
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			_, err = db.Exec("INSERT INTO users (id, name) VALUES ($1, $2)", i, faker.Name())
+		}()
 	}
-
+	wg.Wait()
 	// Insert 1 flight
 	_, err = db.Exec("INSERT INTO flights (id, airline_id, name) VALUES (1, 1, 'DL101')")
 	if err != nil {
@@ -37,13 +39,14 @@ func InsertDummyData(db *sql.DB) error {
 
 	// Insert 120 seats
 	for i := 1; i <= 120; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			seatLabel := fmt.Sprintf("%dA", i) // Example seat labels: "1A", "2A", etc.
+			_, err = db.Exec("INSERT INTO seats (id, name, trip_id, user_id) VALUES ($1, $2, 1, $3)", i, seatLabel, nil)
+		}()
 
-		seatLabel := fmt.Sprintf("%dA", i) // Example seat labels: "1A", "2A", etc.
-		_, err = db.Exec("INSERT INTO seats (id, name, trip_id, user_id) VALUES ($1, $2, 1, $3)", i, seatLabel, nil)
-		if err != nil {
-			return fmt.Errorf("error inserting dummy seat %d: %v", i, err)
-		}
 	}
-
+	wg.Wait()
 	return nil
 }
