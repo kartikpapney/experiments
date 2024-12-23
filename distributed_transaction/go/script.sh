@@ -1,9 +1,6 @@
-echo "Without threads"
+echo "\nWithout threads"
 go run main.go normal
-echo "\n"
-echo "With threads and normal lock"
+echo "\nWith threads and normal lock"
 go run main.go lock
-echo "\n"
-echo "Without threads and skip lock"
+echo "\nWithout threads and skip lock"
 go run main.go skip-lock
-echo "\n"
