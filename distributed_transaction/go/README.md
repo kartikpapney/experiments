@@ -53,8 +53,3 @@ This project is a representation of how to handle concurrent request during **Ai
 - **Seat ↔ User**: A seat is reserved by a user.
 
 ---
-
-## Getting Started
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/flight-booking-system.git
