@@ -7,7 +7,13 @@ const TOTAL_PARTITION = 3;
 
 const allHashtag = [
   "InspirationDaily",
+  "InspirationDaily",
+  "InspirationDaily",
+  "InspirationDaily",
   "CodeLife",
+  "CodeLife",
+  "CodeLife",
+  "TechTrends",
   "TechTrends",
   "NatureLovers",
   "WeekendVibes",
