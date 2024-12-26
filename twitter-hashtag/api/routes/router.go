@@ -24,6 +24,7 @@ func New() *gin.Engine {
 	v1 := r.Group("/api/v1")
 	{
 		PingRoute(v1)
+		TrendingRoute(v1)
 	}
 
 	docs.SwaggerInfo.BasePath = v1.BasePath()

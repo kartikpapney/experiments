@@ -1,0 +1,1 @@
+node main.js 100000

@@ -26,10 +26,10 @@ func Connect(schema string) (*sql.DB, error) {
 	db.SetMaxOpenConns(10)
 	db.SetMaxIdleConns(5)
 	db.SetConnMaxLifetime(0)
+
 	err = initializeDB(db, schema)
 	if err != nil {
 		return nil, fmt.Errorf("error initializing the database: %v", err)
 	}
-
 	return db, nil
 }

@@ -6,12 +6,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func PingRoute(router *gin.RouterGroup) {
-	auth := router.Group("/ping")
+func TrendingRoute(router *gin.RouterGroup) {
+	auth := router.Group("/trending")
 	{
 		auth.GET(
 			"",
-			controllers.Ping,
+			controllers.GetTopTweets,
 		)
 	}
 }
