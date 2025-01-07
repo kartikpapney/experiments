@@ -1,10 +1,11 @@
 {
   "dependencies": {
+    "@langchain/anthropic": "^0.3.11",
     "@langchain/core": "^0.3.27",
     "@langchain/openai": "^0.3.16",
     "dotenv": "^16.4.7",
     "langchain": "^0.3.9",
-    "youtube-transcript": "^1.2.1"
+    "youtube-captions-scraper": "^2.0.3"
   },
   "name": "llm",
   "version": "1.0.0",
