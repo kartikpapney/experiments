@@ -11,7 +11,7 @@ type Tweet struct {
 	HashtagPartition int    `json:"hashtagPartition"`
 }
 
-func IncreamentHashtagCount(db *sql.DB, hashtag string, count int) error {
+func IncrementHashtagCount(db *sql.DB, hashtag string, count int) error {
 	txn, err := db.Begin()
 	// defer txn.Rollback()
 	if err != nil {
