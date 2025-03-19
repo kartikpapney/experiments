@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/experiments/link"
+	"github.com/kartikpapney/experiments/link"
 )
 
 func main() {
